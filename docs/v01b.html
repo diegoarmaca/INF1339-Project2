@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <title>Diego INF1339 Project2 V01b</title>
+        <style>
+        .output{color: chartreuse;}
+        
+        </style>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.js"></script>
+        <script>
+            var url = 'https://api.nytimes.com/svc/search/v2/articlesearch.json?q=rainbow&api-key=VFmqO7v2ZWFazzhPboSXt89ktYhXQkuD';
+            function setup() {
+                noCanvas();
+                loadJSON(url, gotData)
+             }
+            function gotData(data){
+                alert("Function gotData was activated")
+                document.getElementById("test_output").innerHTML = data.response.docs[0].headline.main
+                
+            }
+        </script>
+    </head>
+    <body>
+        <h3>New York Times API: Articles from all time about rainbows</h3>
+        <p id="test_output" class="output"></p>
+    </body>
+</html>
